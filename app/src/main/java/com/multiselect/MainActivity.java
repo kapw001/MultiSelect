@@ -45,6 +45,22 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        /**
+         * @title : which is used for show the title of the dialog
+         *
+         * @isSearchEnabled is used for wheather searchable enable or not
+         *
+         * @isSelect/Deselect is used for when click the button it select all choices
+         *
+         * @maxselectionlimt is used for max selection of the choices
+         *
+         * @list finaly pass the list what you want to show in the Dialog and choose
+         *
+         * @resourceID which is used for row of choices the default is android.R.layout.simple_list_item_checked
+         *             you can change whatever you want
+         *
+         */
+
         MyMultiSelectDialogFragment dialogTest = MyMultiSelectDialogFragment.getInstance("Select your team", false, false, 5, list, android.R.layout.simple_list_item_multiple_choice);
 
         dialogTest.show(getSupportFragmentManager(), "Multiselect");
