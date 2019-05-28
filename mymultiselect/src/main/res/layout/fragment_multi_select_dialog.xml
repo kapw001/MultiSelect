@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MyMultiSelectDialogFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Title"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_gray" />
+
+    <Button
+        android:id="@+id/select_deselect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:text="Select All" />
+
+    <View
+        android:id="@+id/select_deselect_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_gray" />
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:defaultQueryHint="Search your item"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search your item" />
+
+    <View
+        android:id="@+id/searchView_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_gray" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="8dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="8dp">
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:text="Cancel" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/btn_color"
+            android:text="Done"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
