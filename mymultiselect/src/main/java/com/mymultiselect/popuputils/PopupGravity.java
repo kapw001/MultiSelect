@@ -1,4 +1,4 @@
-package com.mymultiselect.popup;
+package com.mymultiselect.popuputils;
 
 public class PopupGravity {
 

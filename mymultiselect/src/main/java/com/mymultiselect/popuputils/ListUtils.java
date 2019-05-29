@@ -1,4 +1,4 @@
-package com.mymultiselect.popup;
+package com.mymultiselect.popuputils;
 
 import android.content.Context;
 import android.content.res.Resources;

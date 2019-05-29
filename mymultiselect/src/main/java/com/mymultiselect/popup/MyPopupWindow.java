@@ -6,6 +6,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListPopupWindow;
 
+import com.mymultiselect.popuputils.ListUtils;
+
 import java.util.List;
 
 public class MyPopupWindow<T> extends ListPopupWindow {
