@@ -1,4 +1,4 @@
-package com.mymultiselect;
+package com.mymultiselect.multselect;
 
 
 import android.app.Dialog;
@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.mymultiselect.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;

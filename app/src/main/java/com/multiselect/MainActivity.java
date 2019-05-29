@@ -3,9 +3,11 @@ package com.multiselect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 
 
-import com.mymultiselect.MyMultiSelectDialogFragment;
+import com.mymultiselect.popup.MyPopupWindow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +29,13 @@ public class MainActivity extends AppCompatActivity {
             "Kolkata",
             "Bhopal"
     };
+    List<City> list = new ArrayList<>();
+    MyPopupWindow<City> myPopupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        List<City> list = new ArrayList<>();
 
 
         for (int i = 0; i < city.length; i++) {
@@ -44,43 +46,6 @@ public class MainActivity extends AppCompatActivity {
             list.add(team1);
         }
 
-
-        /**
-         * @title : which is used for show the title of the dialog
-         *
-         * @isSearchEnabled is used for wheather searchable enable or not
-         *
-         * @isSelect/Deselect is used for when click the button it select all choices
-         *
-         * @maxselectionlimt is used for max selection of the choices
-         *
-         * @list finaly pass the list what you want to show in the Dialog and choose
-         *
-         * @resourceID which is used for row of choices the default is android.R.layout.simple_list_item_checked
-         *             you can change whatever you want
-         *
-         */
-
-        MyMultiSelectDialogFragment dialogTest = MyMultiSelectDialogFragment.getInstance("Select your team", false, false, 5, list, android.R.layout.simple_list_item_multiple_choice);
-
-        dialogTest.show(getSupportFragmentManager(), "Multiselect");
-
-
-        dialogTest.setMultiItemSelectedListener(new MyMultiSelectDialogFragment.MultiItemSelectedListener<City>() {
-            @Override
-            public void onMultiItemSelected(List<City> list, String s) {
-
-                Log.e(TAG, "onMultiItemSelected: " + s);
-
-//                List<City> list1 = list;
-
-                for (int i = 0; i < list.size(); i++) {
-
-                    Log.e(TAG, "onMultiItemSelected: " + list.get(i).toString());
-                }
-
-            }
-        });
 
 //        ArrayList<ModelMultiSelect> teams = new ArrayList<>();
 //
@@ -111,5 +76,76 @@ public class MainActivity extends AppCompatActivity {
 //
 //        multiSelectDialog.show(getSupportFragmentManager(), "Multiselect");
 
+    }
+
+    //
+    public void onShow(View view) {
+
+        myPopupWindow = new MyPopupWindow<City>(view, list);
+
+        myPopupWindow.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                myPopupWindow.dismiss();
+                City city = myPopupWindow.getSelectedItem();
+
+                if (city != null) {
+                    Log.e(TAG, "onItemClick: " + city.getName());
+                }
+
+            }
+        });
+
+        myPopupWindow.show();
+
+
+//
+//        /**
+//         * @title : which is used for show the title of the dialog
+//         *
+//         * @isSearchEnabled is used for wheather searchable enable or not
+//         *
+//         * @isSelect/Deselect is used for when click the button it select all choices
+//         *
+//         * @maxselectionlimt is used for max selection of the choices
+//         *
+//         * @list finaly pass the list what you want to show in the Dialog and choose
+//         *
+//         * @resourceID which is used for row of choices the default is android.R.layout.simple_list_item_checked
+//         *             you can change whatever you want
+//         *
+//         */
+//
+//        MyMultiSelectDialogFragment dialogTest = MyMultiSelectDialogFragment.getInstance("Select your team", false, false, 5, list, android.R.layout.simple_list_item_multiple_choice);
+//
+//        dialogTest.show(getSupportFragmentManager(), "Multiselect");
+//
+//
+//        dialogTest.setMultiItemSelectedListener(new MyMultiSelectDialogFragment.MultiItemSelectedListener<City>() {
+//            @Override
+//            public void onMultiItemSelected(List<City> list, String s) {
+//
+//                Log.e(TAG, "onMultiItemSelected: " + s);
+//
+////                List<City> list1 = list;
+//
+//                for (int i = 0; i < list.size(); i++) {
+//
+//                    Log.e(TAG, "onMultiItemSelected: " + list.get(i).toString());
+//                }
+//
+//            }
+//        });
+    }
+
+    public void onShow1(View view) {
+
+        City city = myPopupWindow.getSelectedItem();
+
+        if (city != null) {
+            Log.e(TAG, "onItemClick: " + city.getName());
+        }
     }
 }
