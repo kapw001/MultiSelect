@@ -16,13 +16,14 @@ import android.widget.Toast;
 import com.mymultiselect.popup.MyPopupWindow;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     String[] city = {
-            "BangaloreBangaloreBangaloreBangalore",
+            "Bangalore",
             "Chennai",
             "Mumbai",
             "Pune",
@@ -46,11 +47,14 @@ public class MainActivity extends AppCompatActivity {
     List<City> list = new ArrayList<>();
     MyPopupWindow<City> myPopupWindow;
 
+    CustomSpinnerInputLayout<City> spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        spinner = findViewById(R.id.spinner);
 
         for (int i = 0; i < city.length; i++) {
 
@@ -59,6 +63,17 @@ public class MainActivity extends AppCompatActivity {
 
             list.add(team1);
         }
+
+
+        spinner.setList(list);
+
+//        spinner.setItemSelectedListener(new CustomSpinnerInputLayout.ItemSelectedListener<City>() {
+//            @Override
+//            public void onItemChanged(City o) {
+//
+//            }
+//
+//        });
 
 
 //        ArrayList<ModelMultiSelect> teams = new ArrayList<>();
@@ -179,8 +194,8 @@ public class MainActivity extends AppCompatActivity {
 //         * @isSelect/Deselect is used for when click the button it select all choices
 //         *
 //         * @maxselectionlimt is used for max selection of the choices
-//         *
-//         * @list finaly pass the list what you want to show in the Dialog and choose
+
+//         * @list finaly pass the list what you want to show in the Dialog and choose//         *
 //         *
 //         * @resourceID which is used for row of choices the default is android.R.layout.simple_list_item_checked
 //         *             you can change whatever you want
@@ -212,32 +227,42 @@ public class MainActivity extends AppCompatActivity {
     public void onShow1(View view) {
 
 
-        AlertDialog.Builder sayWindows = new AlertDialog.Builder(
-                MainActivity.this);
-        final EditText saySomething = new EditText(MainActivity.this);
-        sayWindows.setPositiveButton("ok", null);
-        sayWindows.setNegativeButton("cancel", null);
-//        sayWindows.setAdapter(city, null);
-        sayWindows.setView(saySomething);
+        City city = spinner.getItem();
 
-        final AlertDialog mAlertDialog = sayWindows.create();
-        mAlertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+        if (city != null) {
 
-            @Override
-            public void onShow(DialogInterface dialog) {
+            Log.e(TAG, "onShow1: " + city.getName());
+        } else {
 
-                Button b = mAlertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
-                b.setOnClickListener(new View.OnClickListener() {
+            Log.e(TAG, "onShow1: findout ");
+        }
 
-                    @Override
-                    public void onClick(View view) {
-                        // TODO Do something
-                    }
-                });
-            }
-        });
-        mAlertDialog.show();
-
+//        AlertDialog.Builder sayWindows = new AlertDialog.Builder(
+//                MainActivity.this);
+//        final EditText saySomething = new EditText(MainActivity.this);
+//        sayWindows.setPositiveButton("ok", null);
+//        sayWindows.setNegativeButton("cancel", null);
+////        sayWindows.setAdapter(city, null);
+//        sayWindows.setView(saySomething);
+//
+//        final AlertDialog mAlertDialog = sayWindows.create();
+//        mAlertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+//
+//            @Override
+//            public void onShow(DialogInterface dialog) {
+//
+//                Button b = mAlertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+//                b.setOnClickListener(new View.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(View view) {
+//                        // TODO Do something
+//                    }
+//                });
+//            }
+//        });
+//        mAlertDialog.show();
+//
 
 //        City city = myPopupWindow.getSelectedItem();
 //
