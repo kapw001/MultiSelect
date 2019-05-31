@@ -25,7 +25,7 @@
         android:onClick="onShow1"
         android:text="Button" />
 
-    <com.multiselect.CustomSpinnerInputLayout
+    <com.mymultiselect.customview.CustomSpinnerInputLayout
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,5 +37,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
-    </com.multiselect.CustomSpinnerInputLayout>
+    </com.mymultiselect.customview.CustomSpinnerInputLayout>
+
+
+    <com.mymultiselect.customview.CustomMultiSpinnerInputLayout
+        android:id="@+id/multiselect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="hint" />
+    </com.mymultiselect.customview.CustomMultiSpinnerInputLayout>
+
+
 </RelativeLayout>

@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
+import com.mymultiselect.customview.CustomMultiSpinnerInputLayout;
+import com.mymultiselect.customview.CustomSpinnerInputLayout;
 import com.mymultiselect.popup.MyPopupWindow;
 
 import java.util.ArrayList;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     MyPopupWindow<City> myPopupWindow;
 
     CustomSpinnerInputLayout<City> spinner;
+    CustomMultiSpinnerInputLayout<City> spinner1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         spinner = findViewById(R.id.spinner);
+        spinner1 = findViewById(R.id.multiselect);
 
         for (int i = 0; i < city.length; i++) {
 
@@ -66,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         spinner.setList(list);
+
+
+        spinner1.setList(list, getSupportFragmentManager(), "Select a team");
+
 
 //        spinner.setItemSelectedListener(new CustomSpinnerInputLayout.ItemSelectedListener<City>() {
 //            @Override
@@ -225,6 +233,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onShow1(View view) {
+
+
+        List<City> cityList = spinner1.getSelectedList();
+
+
+        if (!cityList.isEmpty()) {
+
+            for (int i = 0; i < cityList.size(); i++) {
+
+                Log.e(TAG, "onShow1: multiselect list " + cityList.get(i));
+            }
+        } else {
+
+            Log.e(TAG, "onShow1: multiselect no select ");
+        }
 
 
         City city = spinner.getItem();
