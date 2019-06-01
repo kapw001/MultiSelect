@@ -1,6 +1,7 @@
 package com.mymultiselect.multispinner;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -79,6 +81,29 @@ public class MultiSpinner extends TextInputLayout implements SearchView.OnQueryT
         initAlertView(dialogView);
 
         alertDialog = builder.create();
+
+
+//        Drawable drawable = getResources().getDrawable(R.drawable.yourdrawable);
+//
+//// set opacity
+//        drawable.setAlpha(10);
+//
+////Set it
+//        button.setCompoundDrawablesWithIntrinsicBounds(drawable, 0, 0, 0);
+
+        EditText editText = getEditText();
+        // Left, top, right, bottom drawables.
+        Drawable[] compoundDrawables = editText.getCompoundDrawables();
+
+        for (int i = 0; i < compoundDrawables.length; i++) {
+            Drawable topCompoundDrawable = compoundDrawables[i];
+            if (topCompoundDrawable != null)
+                topCompoundDrawable.setAlpha(150);
+        }
+
+// This is the top drawable.
+
+
     }
 
     public void setTitle(String title) {
