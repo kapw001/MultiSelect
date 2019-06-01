@@ -5,8 +5,10 @@ import android.support.design.widget.TextInputLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
+import com.mymultiselect.R;
 import com.mymultiselect.multselect.ModelMultiSelect;
 import com.mymultiselect.popup.MyPopupWindow;
 
@@ -41,6 +43,8 @@ public class CustomSpinnerInputLayout<T extends ModelMultiSelect> extends TextIn
         setFocusable(false);
 
         if (getEditText() != null) getEditText().setFocusable(false);
+
+
 
 
 //        getEditText().setOnClickListener(new OnClickListener() {

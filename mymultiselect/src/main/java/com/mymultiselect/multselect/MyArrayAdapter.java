@@ -138,6 +138,8 @@ public class MyArrayAdapter<T extends ModelMultiSelect> extends ArrayAdapter<T> 
                         item.setChecked(true);
 
                         myCheckedList.add((T) item);
+                    } else {
+                        item.setChecked(false);
                     }
 
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
@@ -21,7 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="121dp"
         android:onClick="onShow1"
         android:text="Button" />
 
@@ -30,8 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp">
+        android:layout_centerHorizontal="true">
 
         <android.support.design.widget.TextInputEditText
             android:layout_width="match_parent"
@@ -53,4 +52,31 @@
     </com.mymultiselect.customview.CustomMultiSpinnerInputLayout>
 
 
-</RelativeLayout>
+    <com.mymultiselect.customview.MyMultiSelectSpinner
+        android:id="@+id/myMultiselect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="My Multi select" />
+
+    </com.mymultiselect.customview.MyMultiSelectSpinner>
+
+
+    <com.mymultiselect.multispinner.MultiSpinner
+        android:id="@+id/multspinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="My New Spinner " />
+
+    </com.mymultiselect.multispinner.MultiSpinner>
+
+
+</LinearLayout>

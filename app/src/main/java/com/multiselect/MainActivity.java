@@ -6,19 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 
 import com.mymultiselect.customview.CustomMultiSpinnerInputLayout;
 import com.mymultiselect.customview.CustomSpinnerInputLayout;
+import com.mymultiselect.customview.MyMultiSelectSpinner;
+import com.mymultiselect.multispinner.MultiSpinner;
+import com.mymultiselect.multselect.MyMultiSelectDialogFragment;
 import com.mymultiselect.popup.MyPopupWindow;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -52,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
     CustomSpinnerInputLayout<City> spinner;
     CustomMultiSpinnerInputLayout<City> spinner1;
 
+    MyMultiSelectSpinner myMultiSelectSpinner;
+
+    MultiSpinner multiSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
         spinner = findViewById(R.id.spinner);
         spinner1 = findViewById(R.id.multiselect);
+        myMultiSelectSpinner = findViewById(R.id.myMultiselect);
+        multiSpinner = findViewById(R.id.multspinner);
 
         for (int i = 0; i < city.length; i++) {
 
@@ -72,7 +77,24 @@ public class MainActivity extends AppCompatActivity {
         spinner.setList(list);
 
 
+        multiSpinner.setList(list);
+        multiSpinner.enableSearchView(false);
+        multiSpinner.enableSelectAllButton(true);
+
+
+
         spinner1.setList(list, getSupportFragmentManager(), "Select a team");
+
+        myMultiSelectSpinner.setMultiDialogList(list, getSupportFragmentManager(), "Multi select dialog");
+
+        myMultiSelectSpinner.setItemSelectedListener(new MyMultiSelectDialogFragment.MultiItemSelectedListener() {
+            @Override
+            public void onMultiItemSelected(List list, String selectedNames) {
+
+                Log.e(TAG, "onMultiItemSelected: " + selectedNames);
+
+            }
+        });
 
 
 //        spinner.setItemSelectedListener(new CustomSpinnerInputLayout.ItemSelectedListener<City>() {
