@@ -1,6 +1,6 @@
 package com.multiselect;
 
-import com.mymultiselect.multselect.ModelMultiSelect;
+import com.mycommonlibrary.multselect.ModelMultiSelect;
 
 public class City extends ModelMultiSelect {
     public City(String name) {

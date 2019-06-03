@@ -1,4 +1,4 @@
-package com.mymultiselect.multselect;
+package com.mycommonlibrary.multselect;
 
 
 import android.app.Dialog;
@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mymultiselect.R;
+import com.mycommonlibrary.R;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -146,7 +146,7 @@ public class MyMultiSelectDialogFragment<T extends ModelMultiSelect> extends Dia
         done.setOnClickListener(this);
         cancel.setOnClickListener(this);
 
-        int resourceId = android.R.layout.simple_list_item_checked;
+        int resourceId = android.R.layout.simple_list_item_multiple_choice;
         int maxSelectionLimit = -1;
 
         List<T> list = new ArrayList<>();

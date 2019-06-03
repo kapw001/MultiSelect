@@ -1,4 +1,4 @@
-package com.mymultiselect.popuputils;
+package com.mycommonlibrary.popuputils;
 
 import android.content.Context;
 import android.content.res.Resources;

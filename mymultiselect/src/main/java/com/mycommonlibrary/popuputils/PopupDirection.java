@@ -1,4 +1,4 @@
-package com.mymultiselect.popuputils;
+package com.mycommonlibrary.popuputils;
 
 public class PopupDirection {
 

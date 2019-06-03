@@ -1,4 +1,4 @@
-package com.mymultiselect.multispinner;
+package com.mycommonlibrary.multispinner;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,17 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mymultiselect.R;
-import com.mymultiselect.multselect.ModelMultiSelect;
-import com.mymultiselect.multselect.MyArrayAdapter;
+import com.mycommonlibrary.R;
+import com.mycommonlibrary.multselect.ModelMultiSelect;
+import com.mycommonlibrary.multselect.MyArrayAdapter;
 
 import java.util.List;
 

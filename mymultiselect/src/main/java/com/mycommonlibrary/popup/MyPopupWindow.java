@@ -1,4 +1,4 @@
-package com.mymultiselect.popup;
+package com.mycommonlibrary.popup;
 
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -6,7 +6,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListPopupWindow;
 
-import com.mymultiselect.popuputils.ListUtils;
+import com.mycommonlibrary.popuputils.ListUtils;
 
 import java.util.List;
 

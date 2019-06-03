@@ -8,6 +8,15 @@
     tools:context=".MainActivity">
 
 
+    <EditText
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="DatePicker" />
+
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -25,7 +34,7 @@
         android:onClick="onShow1"
         android:text="Button" />
 
-    <com.mymultiselect.customview.CustomSpinnerInputLayout
+    <com.mycommonlibrary.customview.CustomSpinnerInputLayout
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,10 +45,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
-    </com.mymultiselect.customview.CustomSpinnerInputLayout>
+    </com.mycommonlibrary.customview.CustomSpinnerInputLayout>
 
 
-    <com.mymultiselect.customview.CustomMultiSpinnerInputLayout
+    <com.mycommonlibrary.customview.CustomMultiSpinnerInputLayout
         android:id="@+id/multiselect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,10 +58,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
-    </com.mymultiselect.customview.CustomMultiSpinnerInputLayout>
+    </com.mycommonlibrary.customview.CustomMultiSpinnerInputLayout>
 
 
-    <com.mymultiselect.customview.MyMultiSelectSpinner
+    <com.mycommonlibrary.customview.MyMultiSelectSpinner
         android:id="@+id/myMultiselect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -62,10 +71,10 @@
             android:layout_height="wrap_content"
             android:hint="My Multi select" />
 
-    </com.mymultiselect.customview.MyMultiSelectSpinner>
+    </com.mycommonlibrary.customview.MyMultiSelectSpinner>
 
 
-    <com.mymultiselect.multispinner.MultiSpinner
+    <com.mycommonlibrary.multispinner.MultiSpinner
         android:id="@+id/multspinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,7 +86,7 @@
             android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
             android:hint="My New Spinner " />
 
-    </com.mymultiselect.multispinner.MultiSpinner>
+    </com.mycommonlibrary.multispinner.MultiSpinner>
 
 
 </LinearLayout>

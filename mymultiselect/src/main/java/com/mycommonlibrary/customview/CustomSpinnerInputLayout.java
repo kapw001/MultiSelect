@@ -1,16 +1,14 @@
-package com.mymultiselect.customview;
+package com.mycommonlibrary.customview;
 
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.PopupWindow;
 import android.widget.Toast;
 
-import com.mymultiselect.R;
-import com.mymultiselect.multselect.ModelMultiSelect;
-import com.mymultiselect.popup.MyPopupWindow;
+import com.mycommonlibrary.multselect.ModelMultiSelect;
+import com.mycommonlibrary.popup.MyPopupWindow;
 
 import java.util.List;
 

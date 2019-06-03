@@ -1,4 +1,4 @@
-package com.mymultiselect.customview;
+package com.mycommonlibrary.customview;
 
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
@@ -8,8 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Toast;
 
-import com.mymultiselect.multselect.ModelMultiSelect;
-import com.mymultiselect.multselect.MyMultiSelectDialogFragment;
+import com.mycommonlibrary.multselect.MyMultiSelectDialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;

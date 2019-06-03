@@ -1,4 +1,4 @@
-package com.mymultiselect.multselect;
+package com.mycommonlibrary.multselect;
 
 import java.io.Serializable;
 

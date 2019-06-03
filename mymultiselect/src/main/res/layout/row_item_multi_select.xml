@@ -14,10 +14,12 @@
 -->
 
 <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/test3"
+    android:id="@+id/test1"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeightSmall"
-    android:checkMark="?android:attr/textCheckMark"
+    android:checkMark="@drawable/checked_resixe"
+    android:checked="false"
+    android:checkMarkTint="@color/checked_state_color"
     android:gravity="center_vertical"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"

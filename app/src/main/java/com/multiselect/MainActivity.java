@@ -6,23 +6,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 
-import com.mymultiselect.customview.CustomMultiSpinnerInputLayout;
-import com.mymultiselect.customview.CustomSpinnerInputLayout;
-import com.mymultiselect.customview.MyMultiSelectSpinner;
-import com.mymultiselect.multispinner.MultiSpinner;
-import com.mymultiselect.multselect.MyMultiSelectDialogFragment;
-import com.mymultiselect.popup.MyPopupWindow;
+import com.mycommonlibrary.commoninterface.DatePickerListener;
+import com.mycommonlibrary.customview.CustomMultiSpinnerInputLayout;
+import com.mycommonlibrary.customview.CustomSpinnerInputLayout;
+import com.mycommonlibrary.customview.MyMultiSelectSpinner;
+import com.mycommonlibrary.multispinner.MultiSpinner;
+import com.mycommonlibrary.multselect.MyArrayAdapter;
+import com.mycommonlibrary.multselect.MyMultiSelectDialogFragment;
+import com.mycommonlibrary.myutils.DateAndTimePicker;
+import com.mycommonlibrary.myutils.DateUtils;
+import com.mycommonlibrary.popup.MyPopupWindow;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
     String[] city = {
             "Bangalore",
             "Chennai",
@@ -55,12 +62,15 @@ public class MainActivity extends AppCompatActivity {
 
     MultiSpinner multiSpinner;
 
+    EditText datePicker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         spinner = findViewById(R.id.spinner);
+        datePicker = findViewById(R.id.datePicker);
         spinner1 = findViewById(R.id.multiselect);
         myMultiSelectSpinner = findViewById(R.id.myMultiselect);
         multiSpinner = findViewById(R.id.multspinner);
@@ -77,11 +87,16 @@ public class MainActivity extends AppCompatActivity {
         spinner.setList(list);
 
 
-        multiSpinner.setList(list);
+        MyArrayAdapter<City> myArrayAdapter = new MyArrayAdapter<City>(this, R.layout.row_item_multi_select, list);
+
+
+//        multiSpinner.setList(list);
+
+        multiSpinner.setAdapter(myArrayAdapter);
+
         multiSpinner.setMinSelectionlimit(2);
         multiSpinner.enableSearchView(false);
         multiSpinner.enableSelectAllButton(true);
-
 
 
         spinner1.setList(list, getSupportFragmentManager(), "Select a team");
@@ -97,6 +112,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        datePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                DateAndTimePicker.datePicker(v.getContext(), DateAndTimePicker.DATE_FORMAT, new DatePickerListener() {
+                    @Override
+                    public void onDateSelected(String pickedDate) {
+                        datePicker.setText(pickedDate);
+
+                        Date d = DateUtils.convertStringToDate(pickedDate, DateUtils.DATE_FORMAT1);
+
+                        String nd = DateUtils.convertDateToString(d, DateUtils.DATE_FORMAT);
+
+                        datePicker.setText(nd);
+
+                    }
+                });
+
+            }
+        });
 
 //        spinner.setItemSelectedListener(new CustomSpinnerInputLayout.ItemSelectedListener<City>() {
 //            @Override

@@ -1,4 +1,4 @@
-package com.mymultiselect.customview;
+package com.mycommonlibrary.customview;
 
 import android.content.Context;
 import android.support.design.widget.TextInputLayout;
@@ -6,15 +6,12 @@ import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
-import com.mymultiselect.multselect.ModelMultiSelect;
-import com.mymultiselect.multselect.MyMultiSelectDialogFragment;
-import com.mymultiselect.popup.MyPopupWindow;
+import com.mycommonlibrary.multselect.ModelMultiSelect;
+import com.mycommonlibrary.multselect.MyMultiSelectDialogFragment;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class CustomMultiSpinnerInputLayout<T extends ModelMultiSelect> extends TextInputLayout {
