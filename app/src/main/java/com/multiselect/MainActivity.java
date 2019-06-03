@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         multiSpinner.setList(list);
+        multiSpinner.setMinSelectionlimit(2);
         multiSpinner.enableSearchView(false);
         multiSpinner.enableSelectAllButton(true);
 

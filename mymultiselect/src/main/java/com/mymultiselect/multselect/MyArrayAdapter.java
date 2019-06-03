@@ -22,6 +22,7 @@ public class MyArrayAdapter<T extends ModelMultiSelect> extends ArrayAdapter<T> 
 
 
     private int maxSelection = -1;
+    private int minSelection = -1;
     private int selectionCount = 0;
 //    private final int mResource;
 
@@ -115,6 +116,15 @@ public class MyArrayAdapter<T extends ModelMultiSelect> extends ArrayAdapter<T> 
 
     public void setMaxSelection(int maxSelection) {
         this.maxSelection = maxSelection;
+    }
+
+    public void setMinSelection(int minSelection) {
+
+        this.minSelection = minSelection;
+    }
+
+    public int getMinSelection() {
+        return minSelection;
     }
 
     public void selectDeselecAll() {

@@ -29,8 +29,6 @@ public class MultiSpinner extends TextInputLayout implements SearchView.OnQueryT
 
     private String title = "Select item";
 
-    private static int maxselectionlimit = -1;
-
     private ListView listView;
     private MyArrayAdapter mAdapter;
     private AlertDialog.Builder builder;
@@ -153,6 +151,12 @@ public class MultiSpinner extends TextInputLayout implements SearchView.OnQueryT
 
     }
 
+    public void setMinSelectionlimit(int minLimit) {
+
+        if (mAdapter != null) mAdapter.setMinSelection(minLimit);
+
+    }
+
     public <T extends MyArrayAdapter> void setAdapter(T mAdapter) {
         this.mAdapter = mAdapter;
         if (listView != null) listView.setAdapter(mAdapter);
@@ -216,11 +220,17 @@ public class MultiSpinner extends TextInputLayout implements SearchView.OnQueryT
 
 
         } else if (v.getId() == R.id.done) {
-            if (alertDialog != null && alertDialog.isShowing()) alertDialog.dismiss();
 
-            String names = getSelectedNames();
+            if (isMinSelection()) {
 
-            if (getEditText() != null) getEditText().setText(names);
+                if (alertDialog != null && alertDialog.isShowing()) alertDialog.dismiss();
+
+                String names = getSelectedNames();
+
+                if (getEditText() != null) getEditText().setText(names);
+            } else {
+                showToast("Please select atleast " + mAdapter.getMinSelection() + " items");
+            }
 
         } else if (v.getId() == R.id.cancel) {
             if (alertDialog != null && alertDialog.isShowing()) alertDialog.dismiss();
@@ -262,5 +272,11 @@ public class MultiSpinner extends TextInputLayout implements SearchView.OnQueryT
         }
 
         return builder.toString();
+    }
+
+    private boolean isMinSelection() {
+
+        return getSelectedItem().size() >= mAdapter.getMinSelection();
+
     }
 }
